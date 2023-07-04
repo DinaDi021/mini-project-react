@@ -1,0 +1,23 @@
+.container {
+  border: 1px solid white;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  h2, h6{
+    margin: 10px;
+  }
+
+  &__data{
+    display: flex;
+    justify-content: center;
+  }
+
+  &__info{
+    width: 80%;
+  }
+
+}
