@@ -73,7 +73,7 @@ const LoginForm = () => {
                     {errors.repeat_password && <span>{errors.repeat_password.message}</span>}
                 </label>
 
-                <button type='submit'>Send</button>
+                <button type='submit'>Registration</button>
             </form>
         </div>)
 }

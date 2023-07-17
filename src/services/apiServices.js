@@ -17,3 +17,14 @@ export const UserServices = {
         }
     },
 };
+
+export const CommentsServices = {
+    addComment: async () => {
+        try {
+            let response = await instance.post(Endpoints.COMMENTS);
+            return response.data;
+        } catch (e) {
+            console.error(e);
+        }
+    }
+}
