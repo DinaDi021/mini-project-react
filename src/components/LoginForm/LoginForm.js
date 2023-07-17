@@ -1,5 +1,6 @@
 import styles from './LoginPage.module.css'
 import {useState} from "react";
+import {UserServices} from "../../services/apiServices";
 
 
 const LoginForm = () => {
@@ -10,22 +11,15 @@ const LoginForm = () => {
         email: '',
         phone: ''
     });
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        fetch('https://jsonplaceholder.typicode.com/users', {
-            method: 'POST',
-            body: JSON.stringify(formValue),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
 
-            .then((response) => response.json())
-            .then((value) => console.log(value))
-            .catch(e => {
-                console.log(e);
-            })
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await UserServices.postUsers(setFormValue);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     const handleFormChange = (e, key) => {
         e.preventDefault();
