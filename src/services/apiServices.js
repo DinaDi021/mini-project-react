@@ -8,12 +8,12 @@ const instance = axios.create({
 })
 
 export const UserServices = {
-    postUsers: async (setFormValue) => {
+    userRegistration: async () => {
         try {
             let response = await instance.post(Endpoints.USERS);
-            setFormValue(response.data);
+            return response.data;
         } catch (e) {
             console.error(e);
         }
-    }
+    },
 };
