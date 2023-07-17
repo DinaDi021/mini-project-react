@@ -1,4 +1,4 @@
 export const Endpoints = {
-    POST: '/posts',
+    USERS: '/users',
     COMMENT: '/comments'
 }

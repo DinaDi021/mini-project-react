@@ -5,9 +5,8 @@ import styles from './app.module.css';
 
 const App = () => {
     return (
-        <div className={styles.wrapper}>
-            <Posts/>
-            <Comments/>
+        <div>
+            <LoginForm/>
         </div>
     );
 };
