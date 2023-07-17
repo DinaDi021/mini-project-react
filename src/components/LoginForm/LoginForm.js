@@ -1,4 +1,4 @@
-import styles from './LoginPage.module.css'
+import styles from './LoginForm.module.css'
 import {useState} from "react";
 import {UserServices} from "../../services/apiServices";
 

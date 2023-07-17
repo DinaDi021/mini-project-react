@@ -1,5 +1,5 @@
 import React from "react";
-import {Endpoints} from "../../../api/Endpoints";
+import {Endpoints} from "../api/Endpoints";
 import axios from "axios";
 const {REACT_APP_BASEURL} = process.env;
 
