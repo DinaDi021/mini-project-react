@@ -1,13 +1,12 @@
 import React from 'react';
-import LoginForm from "./components/LoginForm/LoginForm";
-import CommentForm from "./components/CommentForm/CommentForm";
+import {AlbumContainer} from "./components/AlbumsComponent/AlbumContainer";
+import {AlbumsComponent} from "./components/AlbumsComponent/AlbumsComponent";
 
 
 const App = () => {
     return (
         <div>
-            <LoginForm/>
-            <CommentForm/>
+            {/*<AlbumsComponent/>*/}
         </div>
     );
 };

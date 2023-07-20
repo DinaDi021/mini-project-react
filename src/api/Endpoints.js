@@ -1,4 +1,6 @@
 export const Endpoints = {
-    USERS: '/users',
-    COMMENTS: '/comments'
+    TODOS: '/todos',
+    ALBUMS: '/albums',
+    COMMENTS: '/comments',
+    POSTS: '/posts'
 }
