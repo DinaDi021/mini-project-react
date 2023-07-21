@@ -1,4 +1,3 @@
-import React from "react";
 import {Endpoints} from "../api/Endpoints";
 import axios from "axios";
 const {REACT_APP_BASEURL} = process.env;
@@ -34,12 +33,12 @@ export const ContentServices = {
             console.error(e);
         }
     },
-    // getPosts: async (postId) => {
-    //     try {
-    //         let response = await instance.get`(Endpoints.POSTS/${postId})`;
-    //         return response.data;
-    //     } catch (e) {
-    //         console.error(e);
-    //     }
-    // },
+    getPosts: async () => {
+        try {
+            let response = await instance.get(Endpoints.POSTS);
+            return response.data;
+        } catch (e) {
+            console.error(e);
+        }
+    },
 };

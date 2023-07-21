@@ -8,7 +8,7 @@ const TodosContainer = ({todo}) => {
             <h3>{userId}</h3>
             <h3>{id}</h3>
             <h2>{title}</h2>
-            <h2>{completed}</h2>
+            <h2>{completed? 'true' : 'false'}</h2>
         </div>
     );
 };

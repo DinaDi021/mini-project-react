@@ -7,7 +7,7 @@ const TodosComponent = () => {
     const [todos, setTodos] = useState([]);
 
     useEffect(() => {
-        const fetchAlbums = async () => {
+        const fetchTodos = async () => {
             try {
                 const todosData = await ContentServices.getTodos();
                 setTodos(todosData);
@@ -16,7 +16,7 @@ const TodosComponent = () => {
             }
         };
 
-        fetchAlbums();
+        fetchTodos();
     }, []);
 
     return (

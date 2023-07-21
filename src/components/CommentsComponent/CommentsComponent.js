@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {ContentServices} from "../../services/apiServices";
 import {CommentContainer} from "./CommentContainer";
+import {Outlet} from "react-router-dom";
 
-const CommentsComponent = ( {postId}) => {
+const CommentsComponent = () => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        const fetchAlbums = async () => {
+        const fetchComments = async () => {
             try {
                 const commentsData = await ContentServices.getComments();
                 setComments(commentsData);
@@ -15,16 +16,16 @@ const CommentsComponent = ( {postId}) => {
             }
         };
 
-        fetchAlbums();
+        fetchComments();
     }, []);
-
 
     return (
 
         <div>
             <div>
-                {comments.map(comment=><CommentContainer key={comment.id} comment={comment} />)}
+                {comments.map(comment => <CommentContainer key={comment.id} comment={comment} postId={comment.postId}/>)}
             </div>
+            <Outlet/>
         </div>
     );
 };
