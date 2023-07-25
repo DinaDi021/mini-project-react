@@ -1,0 +1,35 @@
+.container {
+    width: 30%;
+    margin: 20px;
+    position: relative;
+}
+
+.info{
+    width: 50%;
+    position: absolute;
+    bottom: 3px;
+}
+
+.image {
+    width: 20vw;
+    height: 50vh;
+    object-fit: cover;
+}
+
+.wrapper {
+    width: 80vw;
+    height: 55vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.btn {
+    width: 20vw;
+    height: 5vh;
+    opacity: 0.2;
+    background-color: darkgray;
+    border: none;
+}

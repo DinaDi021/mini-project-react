@@ -1,7 +1,8 @@
 import {createBrowserRouter, Navigate} from "react-router-dom";
 
 import {MainLayout} from "./layout/MainLayout/MainLayout";
-import {AlbumsPage, CommentsPage, NotFoundPage, PostPage, TodosPage} from "./pages";
+import {MoviesPage, NotFoundPage, GenrePage, TvShowsPage} from "./pages";
+import {MoviePage} from "./pages/MoviePage/MoviePage";
 
 const router = createBrowserRouter([
     {
@@ -10,26 +11,30 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Navigate to={'todos'}/>
+                element: <Navigate to={'movies'}/>
             },
             {
-                path: 'todos',
-                element: <TodosPage/>
+                path: 'movies',
+                element: <MoviesPage/>,
+                // children: [
+                //     {
+                //         path: 'movie/:id',
+                //         element: <MoviePage/>
+                //     }
+                // ]
             },
             {
-                path: 'albums',
-                element: <AlbumsPage/>
+                path: 'tvShows',
+                element: <TvShowsPage/>
             },
             {
-                path: 'comments',
-                element: <CommentsPage/>,
-                children: [
-                    {
-                        path: 'posts/:postId',
-                        element: <PostPage/>
-                    }
-                ]
-            }
+                path: 'genre',
+                element: <GenrePage/>,
+            },
+            {
+                path: 'movies/:id',
+                element: <MoviePage/>,
+            },
         ]
     },
     {

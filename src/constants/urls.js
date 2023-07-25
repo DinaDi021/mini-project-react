@@ -1,16 +1,15 @@
-const baseURL = 'https://jsonplaceholder.typicode.com'
+const baseURL = 'https://api.themoviedb.org/3'
 
-const todos = '/todos'
-const albums = '/albums'
-const comments = '/comments'
-const posts = '/posts'
-
+const movies = '/discover/movie'
+const tv = '/discover/tv'
+const genre = '/genre/movie/list'
+const movie = '/movie'
 const urls = {
-    todos,
-    albums,
-    comments,
-    posts: {
-        byId: (id) => `${posts}/${id}`
+    movies,
+    tv,
+    genre,
+    movie: {
+        byId: (id) => `${movie}/${id}`
     }
 }
 
