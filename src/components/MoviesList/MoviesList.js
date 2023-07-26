@@ -4,6 +4,7 @@ import styles from './MoviesListCard/MoviesListCard.module.css'
 import {moviesService} from "../../services";
 import {MoviesListCard} from "./MoviesListCard/MoviesListCard";
 
+
 const MoviesList = () => {
     const [movies, setMovies] = useState([]);
 

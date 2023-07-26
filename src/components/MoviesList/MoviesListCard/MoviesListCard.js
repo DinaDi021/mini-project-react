@@ -1,6 +1,7 @@
-import styles from './MoviesListCard.module.css'
 import {useNavigate} from "react-router-dom";
 import {useContext} from "react";
+
+import styles from './MoviesListCard.module.css'
 import {Context} from "../../../pages";
 
 
@@ -14,7 +15,7 @@ const MoviesListCard = ({movie}) => {
     const {setMovieId} = useContext(Context);
 
     const handleClick = () => {
-        navigate(`movie/${id}`);
+        navigate(`/movie/${id}`);
         setMovieId(id)
     }
 

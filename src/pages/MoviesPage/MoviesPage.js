@@ -1,6 +1,7 @@
-import {MoviesList} from "../../components/MoviesList/MoviesList";
 import {createContext, useState} from "react";
 import {Outlet} from "react-router-dom";
+
+import {MoviesList} from "../../components";
 
 const Context = createContext(null);
 
@@ -9,7 +10,7 @@ const MoviesPage = () => {
 
     return (
         <div>
-            <h1 style={{margin: '10px 25px'}}>See now:</h1>
+            <h2 style={{margin: '10px 20px'}}>See now:</h2>
             <Context.Provider value={{setMovieId}}>
                 <MoviesList/>
             </Context.Provider>

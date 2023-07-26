@@ -1,7 +1,11 @@
+import React from 'react';
+
+import {GenreBadge} from "../../components";
+
 const GenrePage = () => {
     return (
         <div>
-            PlansPage
+            <GenreBadge/>
         </div>
     );
 };

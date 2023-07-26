@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, useLocation} from "react-router-dom";
 
 import styles from './Header.module.css'
+import {UserInfo} from "../UserInfo/UserInfo";
 
 const Header = () => {
     const links = [
@@ -10,8 +11,8 @@ const Header = () => {
             label: 'Movies'
         },
         {
-            path: '/tvShows',
-            label: 'TvShows'
+            path: '/topRated',
+            label: 'TopRated'
         },
         {
             path: '/genre',
@@ -22,6 +23,7 @@ const Header = () => {
 
     return (
         <div className={styles.container}>
+
             {links.map((link) => (
                 <Link key={link.path}
                       style={{color: link.path === pathname ? 'black' : 'white'}}
@@ -29,6 +31,7 @@ const Header = () => {
                     {link.label}
                 </Link>
             ))}
+            <UserInfo/>
         </div>
     );
 };
