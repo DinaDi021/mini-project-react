@@ -16,12 +16,12 @@ const router = createBrowserRouter([
             {
                 path: 'movies',
                 element: <MoviesPage/>,
-                // children: [
-                //     {
-                //         path: 'movie/:id',
-                //         element: <MoviePage/>
-                //     }
-                // ]
+                children: [
+                    {
+                        path: 'movie/:id',
+                        element: <MoviePage/>
+                    }
+                ]
             },
             {
                 path: 'tvShows',
@@ -30,10 +30,6 @@ const router = createBrowserRouter([
             {
                 path: 'genre',
                 element: <GenrePage/>,
-            },
-            {
-                path: 'movies/:id',
-                element: <MoviePage/>,
             },
         ]
     },

@@ -10,15 +10,18 @@ const MoviesListCard = ({movie}) => {
     const imageSize = 'w500';
     const imageURL = baseURL + imageSize + poster_path;
 
-    // const handleClick = () => {
-    //     navigate(`movie/${id}`);
-    //     setMovieId(id)
-    // }
+    const navigate = useNavigate();
+    const {setMovieId} = useContext(Context);
+
+    const handleClick = () => {
+        navigate(`movie/${id}`);
+        setMovieId(id)
+    }
 
     return (
         <div className={styles.container}>
             <div className={styles.info}>
-                <button className={styles.btn}>Watch: {original_title}</button>
+                <button className={styles.btn} onClick={handleClick}>Watch: {original_title}</button>
             </div>
             <div>
                 <img className={styles.image} src={imageURL} alt={original_title}/>

@@ -14,7 +14,7 @@ const MoviesList = () => {
     return (
         <div className={styles.wrapper}>
             {movies.map((movie) => (
-                <MoviesListCard key={movie.id} movie={movie} />
+                <MoviesListCard key={movie.id} movie={movie}/>
             ))}
         </div>
     );

@@ -16,11 +16,7 @@ const Header = () => {
         {
             path: '/genre',
             label: 'Genre'
-        },
-        {
-            path: '/movies/:id',
-            label: 'Film'
-        },
+        }
     ]
     const {pathname} = useLocation()
 
