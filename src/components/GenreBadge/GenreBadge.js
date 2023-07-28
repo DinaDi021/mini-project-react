@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+
+import styles from './GenreBadge.module.css'
 import { genreService } from "../../services";
 
-const GenreBadge = () => {
+const GenreBadge = ({ onSelectGenre }) => {
     const [genres, setGenres] = useState([]);
 
     useEffect(() => {
@@ -11,10 +13,14 @@ const GenreBadge = () => {
             })
     }, []);
 
+    const handleGenreClick = (genreId) => {
+        onSelectGenre(genreId);
+    };
+
     return (
-        <div>
+        <div className={styles.container}>
             {genres.map((genre) => (
-                <p key={genre.id}>{genre.name}</p>
+                <button key={genre.id} onClick={() => handleGenreClick(genre.id)}>{genre.name}</button>
             ))}
         </div>
     );

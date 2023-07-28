@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 
 import {movieService} from "../../services";
 import styles from "../MoviesList/MoviesListCard/MoviesListCard.module.css";
-import {MovieDetails} from "./MovieDetails/MovieDetails";
+import {MovieInfoDetails} from "./MovieInfoDetails/MovieInfoDetails";
 
 const MovieInfo = () => {
     const [movie, setMovie] = useState([]);
@@ -15,7 +15,7 @@ const MovieInfo = () => {
 
     return (
         <div className={styles.wrapper}>
-            {movie && <MovieDetails movie={movie}/>}
+            {movie && <MovieInfoDetails movie={movie}/>}
         </div>
     );
 };

@@ -22,7 +22,7 @@ const MoviesListCard = ({movie}) => {
     return (
         <div className={styles.container}>
             <div className={styles.info}>
-                <button className={styles.btn} onClick={handleClick}>Watch: {original_title}</button>
+                <button className={styles.btn} onClick={handleClick}>More info: {original_title}</button>
             </div>
             <div>
                 <img className={styles.image} src={imageURL} alt={original_title}/>

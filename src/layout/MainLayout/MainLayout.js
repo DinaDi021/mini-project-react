@@ -7,13 +7,14 @@ const MainLayout = () => {
             <div>
                 <Header/>
             </div>
-            <div style={{display: 'flex', height: '100%'}}>
+            <div style={{display: 'flex', height: '80vh'}}>
                 <Sidebar/>
                 <Outlet/>
             </div>
             <div>
                 <Footer/>
             </div>
+
         </div>
     );
 };

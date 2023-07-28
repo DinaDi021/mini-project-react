@@ -1,0 +1,28 @@
+.container {
+    width: 80vw;
+    height: 15vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.container button {
+    width: 10%;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: lavender;
+    color: white;
+    transition: 0.5s;
+}
+
+.container button:hover{
+    background-color: #8a8ad3;
+}

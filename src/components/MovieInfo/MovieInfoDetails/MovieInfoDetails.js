@@ -1,4 +1,4 @@
-const MovieDetails = ({movie}) => {
+const MovieInfoDetails = ({movie}) => {
     const {title, original_language, overview, release_date, vote_average, poster_path} = movie;
     const baseURL = 'https://image.tmdb.org/t/p/';
     const imageSize = 'w500';
@@ -17,4 +17,4 @@ const MovieDetails = ({movie}) => {
     );
 };
 
-export {MovieDetails};
+export {MovieInfoDetails};

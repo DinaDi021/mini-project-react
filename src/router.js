@@ -24,10 +24,10 @@ const router = createBrowserRouter([
                 path: 'topRated',
                 element: <TopRatedPages/>
             },
-            {
-                path: 'genre',
-                element: <GenrePage/>,
-            },
+            // {
+            //     path: 'genre',
+            //     element: <GenrePage/>,
+            // },
         ]
     },
     {

@@ -26,10 +26,26 @@
     overflow-x: hidden;
 }
 
+.wrapper::-webkit-scrollbar {
+    width: 5px;
+    background-color: lavender;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    background-color: #8a8ad3;
+}
+
 .btn {
     width: 20vw;
     height: 5vh;
     opacity: 0.2;
-    background-color: darkgray;
+    background-color: lavender;
     border: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.btn:hover{
+    opacity: 0.5;
+    background-color: #8a8ad3;
 }
