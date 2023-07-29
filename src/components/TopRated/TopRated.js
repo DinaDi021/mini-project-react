@@ -4,6 +4,7 @@ import styles from "./TopRatedCard/TopRatedCard.module.css";
 import {TopRatedCard} from "./TopRatedCard/TopRatedCard";
 import { topRatedService} from "../../services";
 import {SortComponent} from "../Sort/Sort";
+import {Pagination} from "../Pagination/Pagination";
 
 const TopRated = () => {
     const [topRated, setTopRated] = useState([]);
@@ -54,19 +55,13 @@ const TopRated = () => {
                     ))}
                 </div>
         </div>
-            <div className={styles.containerBtn}>
-                <button className={styles.btnPage}
-                        onClick={handlePrevPage}
-                        disabled={currentPage === 1}>
-                    Previous page
-                </button>
-                <button className={styles.btnPage}
-                        onClick={handleNextPage}
-                        disabled={indexOfLastMovie >= sortedTopRated.length}
-                >
-                    Next page
-                </button>
-            </div>
+            <Pagination
+                currentPage={currentPage}
+                itemsPerPage={moviesPerPage}
+                totalItems={sortedTopRated.length}
+                onNextPage={handleNextPage}
+                onPrevPage={handlePrevPage}
+            />
         </div>
     );
 };

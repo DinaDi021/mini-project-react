@@ -23,18 +23,15 @@
 .containerVideo {
     width: 34vw;
     display: flex;
-    overflow-y: hidden;
+    flex-direction: column;
 }
 
 .containerVideo iframe {
     margin: 0 20px 10px 0;
 }
 
-.containerVideo::-webkit-scrollbar {
-    height: 5px;
-    background-color: lavender;
-}
-
-.containerVideo::-webkit-scrollbar-thumb {
-    background-color: #8a8ad3;
+.containerBtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }

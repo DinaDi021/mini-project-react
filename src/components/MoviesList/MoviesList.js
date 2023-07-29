@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './MoviesListCard/MoviesListCard.module.css'
 import {moviesService} from "../../services";
 import {MoviesListCard} from "./MoviesListCard/MoviesListCard";
+import {Pagination} from "../Pagination/Pagination";
 
 
 const MoviesList = ({selectedGenreId}) => {
@@ -38,20 +39,13 @@ const MoviesList = ({selectedGenreId}) => {
                     <MoviesListCard key={movie.id} movie={movie}/>
                 ))}
             </div>
-
-            <div className={styles.containerBtn}>
-                <button className={styles.btnPage}
-                        onClick={handlePrevPage}
-                        disabled={currentPage === 1}>
-                    Previous page
-                </button>
-                <button className={styles.btnPage}
-                        onClick={handleNextPage}
-                        disabled={indexOfLastMovie >= filteredMovies.length}
-                >
-                    Next page
-                </button>
-            </div>
+            <Pagination
+                currentPage={currentPage}
+                itemsPerPage={moviesPerPage}
+                totalItems={filteredMovies.length}
+                onNextPage={handleNextPage}
+                onPrevPage={handlePrevPage}
+            />
         </div>
     );
 };
