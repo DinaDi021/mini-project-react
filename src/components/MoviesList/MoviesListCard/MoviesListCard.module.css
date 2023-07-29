@@ -23,16 +23,6 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
-}
-
-.wrapper::-webkit-scrollbar {
-    width: 5px;
-    background-color: lavender;
-}
-
-.wrapper::-webkit-scrollbar-thumb {
-    background-color: #8a8ad3;
 }
 
 .btn {
@@ -48,4 +38,31 @@
 .btn:hover{
     opacity: 0.5;
     background-color: #8a8ad3;
+}
+
+.containerBtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btnPage{
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: lavender;
+    color: white;
+    transition: 0.5s;
+}
+
+.btnPage:hover{
+    background-color: #8a8ad3;
+}
+
+.btnPage:disabled{
+    opacity: 0.2;
 }

@@ -1,6 +1,6 @@
-import {TopRated} from "../../components/TopRated/TopRated";
 import {createContext, useState} from "react";
-import {Outlet} from "react-router-dom";
+
+import {TopRated} from "../../components";
 
 
 const RatedContext = createContext(null);
@@ -12,7 +12,6 @@ const TopRatedPages = () => {
             <RatedContext.Provider value={{setMovieId}}>
             <TopRated/>
             </RatedContext.Provider>
-            <Outlet context={{movieId}}/>
         </div>
     );
 };

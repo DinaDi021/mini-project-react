@@ -5,10 +5,13 @@ import {moviesService} from "../../services";
 import {MoviesListCard} from "./MoviesListCard/MoviesListCard";
 
 
-const MoviesList = ({ selectedGenreId }) => {
+const MoviesList = ({selectedGenreId}) => {
     const [movies, setMovies] = useState([]);
 
-    useEffect( () => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const moviesPerPage = 3;
+
+    useEffect(() => {
         moviesService.getAll().then(({data}) => setMovies(data.results))
     }, [])
 
@@ -16,11 +19,39 @@ const MoviesList = ({ selectedGenreId }) => {
         ? movies.filter((movie) => movie.genre_ids.includes(selectedGenreId))
         : movies;
 
+    const indexOfLastMovie = currentPage * moviesPerPage;
+    const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+    const currentMovies = filteredMovies.slice(indexOfFirstMovie, indexOfLastMovie);
+
+    const handleNextPage = () => {
+        setCurrentPage((prevPage) => prevPage + 1);
+    };
+
+    const handlePrevPage = () => {
+        setCurrentPage((prevPage) => prevPage - 1);
+    };
+
     return (
-        <div className={styles.wrapper}>
-            {filteredMovies.map((movie) => (
-                <MoviesListCard key={movie.id} movie={movie}/>
-            ))}
+        <div >
+            <div className={styles.wrapper}>
+                {currentMovies.map((movie) => (
+                    <MoviesListCard key={movie.id} movie={movie}/>
+                ))}
+            </div>
+
+            <div className={styles.containerBtn}>
+                <button className={styles.btnPage}
+                        onClick={handlePrevPage}
+                        disabled={currentPage === 1}>
+                    Previous page
+                </button>
+                <button className={styles.btnPage}
+                        onClick={handleNextPage}
+                        disabled={indexOfLastMovie >= filteredMovies.length}
+                >
+                    Next page
+                </button>
+            </div>
         </div>
     );
 };

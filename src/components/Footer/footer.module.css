@@ -2,4 +2,5 @@
     width: 100vw;
     height: 10vh;
     background-color: lavender;
+    border-top: 1px solid white;
 }

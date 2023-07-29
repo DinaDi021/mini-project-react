@@ -23,6 +23,10 @@
     transition: 0.5s;
 }
 
-.container button:hover{
+.container button:hover {
+    background-color: #8a8ad3;
+}
+
+.container button:focus {
     background-color: #8a8ad3;
 }

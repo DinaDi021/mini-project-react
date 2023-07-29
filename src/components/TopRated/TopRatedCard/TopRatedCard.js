@@ -21,7 +21,7 @@ const TopRatedCard = ({topRat}) => {
             <Link to={`/movie/${id}`} onClick={handleClick}>
                 <div>
                     <div>
-                        <h2>{title}</h2>
+                        <h3>{title}</h3>
                         <div style={{display: 'flex', alignItems: 'center'}}>
                             <StarRating value={vote_average}/>
                             <span style={{marginLeft: '10px'}}>{vote_average}</span>

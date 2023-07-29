@@ -1,27 +1,18 @@
 .wrapper {
     width: 80vw;
-    height: 75vh;
+    height: 70vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
     margin: 20px;
-}
-
-.wrapper::-webkit-scrollbar {
-    width: 5px;
-    background-color: lavender;
-}
-
-.wrapper::-webkit-scrollbar-thumb {
-    background-color: #8a8ad3;
 }
 
 .containerFilm{
     display: flex;
     justify-content: space-between;
     width: 75vw;
+    height: 65vh;
     flex-wrap: wrap;
 }
 
@@ -40,7 +31,7 @@
     width: 30%;
 }
 
-.wrapper button{
+.btnSort{
     padding: 10px 25px;
     margin: 0 10px;
     border-radius: 10px;
@@ -54,4 +45,32 @@
 
 .wrapper button:hover{
     background-color: #8a8ad3;
+}
+
+.containerBtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btnPage{
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: lavender;
+    color: white;
+    transition: 0.5s;
+}
+
+.btnPage:hover{
+    background-color: #8a8ad3;
+}
+
+.btnPage:disabled{
+    opacity: 0.2;
 }

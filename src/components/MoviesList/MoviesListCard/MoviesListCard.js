@@ -6,7 +6,7 @@ import {Context} from "../../../pages";
 
 
 const MoviesListCard = ({movie}) => {
-    const {id, original_title, poster_path} = movie;
+    const {id, title, poster_path} = movie;
     const baseURL = 'https://image.tmdb.org/t/p/';
     const imageSize = 'w500';
     const imageURL = baseURL + imageSize + poster_path;
@@ -22,10 +22,10 @@ const MoviesListCard = ({movie}) => {
     return (
         <div className={styles.container}>
             <div className={styles.info}>
-                <button className={styles.btn} onClick={handleClick}>More info: {original_title}</button>
+                <button className={styles.btn} onClick={handleClick}>More info: {title}</button>
             </div>
             <div>
-                <img className={styles.image} src={imageURL} alt={original_title}/>
+                <img className={styles.image} src={imageURL} alt={title}/>
             </div>
         </div>
     );

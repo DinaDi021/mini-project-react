@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 
 import {movieService} from "../../services";
-import styles from "../MoviesList/MoviesListCard/MoviesListCard.module.css";
 import {MovieInfoDetails} from "./MovieInfoDetails/MovieInfoDetails";
 
 const MovieInfo = () => {
@@ -14,7 +13,7 @@ const MovieInfo = () => {
     }, [id])
 
     return (
-        <div className={styles.wrapper}>
+        <div>
             {movie && <MovieInfoDetails movie={movie}/>}
         </div>
     );
