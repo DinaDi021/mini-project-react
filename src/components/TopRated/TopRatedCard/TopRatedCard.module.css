@@ -16,11 +16,6 @@
     flex-wrap: wrap;
 }
 
-.containerFilm a{
-    color: inherit;
-    text-decoration: none;
-}
-
 .image{
     width: 20vw;
     height: 50vh;
@@ -37,38 +32,14 @@
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    background-color: lavender;
-    color: white;
     transition: 0.5s;
     font-size: 25px;
-}
-
-.wrapper button:hover{
-    background-color: #8a8ad3;
 }
 
 .containerBtn{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-}
-
-.btnPage{
-    padding: 5px 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    background-color: lavender;
-    color: white;
-    transition: 0.5s;
-}
-
-.btnPage:hover{
-    background-color: #8a8ad3;
 }
 
 .btnPage:disabled{

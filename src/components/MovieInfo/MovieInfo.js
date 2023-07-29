@@ -4,6 +4,7 @@ import {useParams} from "react-router-dom";
 import {movieService} from "../../services";
 import {MovieInfoDetails} from "./MovieInfoDetails/MovieInfoDetails";
 
+
 const MovieInfo = () => {
     const [movie, setMovie] = useState([]);
     const {id} = useParams()

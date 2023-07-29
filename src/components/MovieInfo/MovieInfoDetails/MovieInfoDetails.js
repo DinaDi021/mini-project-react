@@ -1,12 +1,12 @@
 import styles from './MovieInfo.module.css'
 import {PosterPreview} from "../../PosterPreview/PosterPreview";
 
+
 const MovieInfoDetails = ({movie}) => {
     const {title, overview, release_date, vote_average, poster_path} = movie;
     const baseURL = 'https://image.tmdb.org/t/p/';
     const imageSize = 'w500';
     const imageURL = baseURL + imageSize + poster_path;
-
 
     return (
         <div className={styles.filmCard}>
@@ -17,7 +17,7 @@ const MovieInfoDetails = ({movie}) => {
                     <h4>Overview:</h4>
                     <p>{overview}</p>
                 </div>
-                <p><b>Release_date:</b> {release_date}</p>
+                <p><b>Release date:</b> {release_date}</p>
                 <div>
                     <PosterPreview/>
                 </div>

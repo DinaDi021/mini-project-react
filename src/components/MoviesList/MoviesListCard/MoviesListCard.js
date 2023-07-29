@@ -1,9 +1,8 @@
-import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useContext} from "react";
 
 import styles from './MoviesListCard.module.css'
 import {Context} from "../../../pages";
-
 
 const MoviesListCard = ({movie}) => {
     const {id, title, poster_path} = movie;
@@ -11,22 +10,19 @@ const MoviesListCard = ({movie}) => {
     const imageSize = 'w500';
     const imageURL = baseURL + imageSize + poster_path;
 
-    const navigate = useNavigate();
     const {setMovieId} = useContext(Context);
 
     const handleClick = () => {
-        navigate(`/movie/${id}`);
-        setMovieId(id)
-    }
+        setMovieId(id);
+    };
 
     return (
         <div className={styles.container}>
-            <div className={styles.info}>
-                <button className={styles.btn} onClick={handleClick}>More info: {title}</button>
-            </div>
+            <Link to={`/movie/${id}`} onClick={handleClick}>
             <div>
                 <img className={styles.image} src={imageURL} alt={title}/>
             </div>
+            </Link>
         </div>
     );
 };

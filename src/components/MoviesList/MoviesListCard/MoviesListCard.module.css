@@ -25,42 +25,10 @@
     align-items: center;
 }
 
-.btn {
-    width: 20vw;
-    height: 5vh;
-    opacity: 0.2;
-    background-color: lavender;
-    border: none;
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-.btn:hover{
-    opacity: 0.5;
-    background-color: #8a8ad3;
-}
-
 .containerBtn{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-}
-
-.btnPage{
-    padding: 5px 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    background-color: lavender;
-    color: white;
-    transition: 0.5s;
-}
-
-.btnPage:hover{
-    background-color: #8a8ad3;
 }
 
 .btnPage:disabled{

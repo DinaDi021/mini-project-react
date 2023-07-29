@@ -1,10 +1,7 @@
-import React from 'react';
 import {Link, useLocation} from "react-router-dom";
 
 import styles from './Header.module.css'
 import {UserInfo} from "../UserInfo/UserInfo";
-
-
 
 const Header = () => {
     const links = [
@@ -16,12 +13,9 @@ const Header = () => {
             path: '/topRated',
             label: 'TopRated'
         },
-        // {
-        //     path: '/genre',
-        //     label: 'Genre'
-        // }
     ]
     const {pathname} = useLocation()
+
 
     return (
         <div className={styles.container}>
@@ -33,7 +27,6 @@ const Header = () => {
                 </Link>
             ))}
             <UserInfo/>
-
         </div>
     );
 };

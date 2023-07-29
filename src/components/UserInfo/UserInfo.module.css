@@ -16,3 +16,7 @@
 .door{
     display: flex;
 }
+
+html[data-theme='dark'] .circleStyle{
+    color: black;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BiDoorOpen } from 'react-icons/bi';
-import styles from './UserInfo.module.css'
 
+import styles from './UserInfo.module.css'
 const UserInfo = () => {
     return (
         <div className={styles.userInfo}>

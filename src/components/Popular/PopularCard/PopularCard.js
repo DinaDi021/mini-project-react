@@ -1,6 +1,7 @@
-import styles from '../../Upcoming/UpcomingCard/UpcomingCard.module.css'
 import {Link} from "react-router-dom";
 import {useContext} from "react";
+
+import styles from '../../Upcoming/UpcomingCard/UpcomingCard.module.css'
 import {UpcomingContext} from "../../Sidebar/Sidebar";
 
 const PopularCard = ({popularMovie}) => {

@@ -1,7 +1,8 @@
 import React, {useContext} from 'react';
-import styles from "../TopRatedCard/TopRatedCard.module.css";
-import {StarRating} from "../../StarsRating/StarsRating";
 import {Link} from "react-router-dom";
+
+import styles from "../TopRatedCard/TopRatedCard.module.css";
+import {StarRating} from "../../StarRating/StarRating";
 import {RatedContext} from "../../../pages";
 
 const TopRatedCard = ({topRat}) => {
@@ -36,6 +37,4 @@ const TopRatedCard = ({topRat}) => {
     );
 };
 
-export {
-    TopRatedCard
-};
+export {TopRatedCard};
