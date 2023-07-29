@@ -16,9 +16,9 @@ const PosterPreview = () => {
         videoService.getById(id, type).then(({ data }) => setVideos(data.results));
     }, [id, type]);
 
-    const indexOfLastMovie = currentPage * videoPerPage;
-    const indexOfFirstMovie = indexOfLastMovie - videoPerPage;
-    const currentMovies = videos.slice(indexOfFirstMovie, indexOfLastMovie);
+    const indexOfLastVideo = currentPage * videoPerPage;
+    const indexOfFirstVideo = indexOfLastVideo - videoPerPage;
+    const currentVideo = videos.slice(indexOfFirstVideo, indexOfLastVideo);
 
     const handleNextPage = () => {
         setCurrentPage((prevPage) => prevPage + 1);
@@ -30,7 +30,7 @@ const PosterPreview = () => {
 
     return (
         <div className={styles.containerVideo}>
-            {currentMovies.map((video) => (
+            {currentVideo.map((video) => (
                 <div key={video.id}>
                     <iframe
                         width="510"

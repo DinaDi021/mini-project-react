@@ -30,7 +30,3 @@
     align-items: center;
     justify-content: space-evenly;
 }
-
-.btnPage:disabled{
-    opacity: 0.2;
-}

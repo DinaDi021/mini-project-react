@@ -20,6 +20,10 @@ button {
   cursor: pointer;
   color: white;
   transition: 0.5s;
+
+  &:disabled{
+    opacity: 0.2;
+  }
 }
 
 .themeTwitchContainer{
