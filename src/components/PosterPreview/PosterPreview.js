@@ -6,7 +6,7 @@ import styles from '../MovieInfo/MovieInfoDetails/MovieInfo.module.css'
 
 const PosterPreview = () => {
     const [videos, setVideos] = useState([]);
-    const { id, type } = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         videoService.getById(id).then(({ data }) => {
