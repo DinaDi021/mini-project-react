@@ -6,6 +6,17 @@
     justify-content: center;
     align-items: center;
     margin: 20px;
+    overflow-x: hidden;
+}
+
+
+.wrapper::-webkit-scrollbar {
+    width: 5px;
+    background-color: lavender;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    background-color: #8a8ad3;
 }
 
 .containerFilm{

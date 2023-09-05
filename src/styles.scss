@@ -54,6 +54,10 @@ html[data-theme='dark'] {
       background-color: #4c4c9f;
     }
   }
+
+  .active-button {
+    background-color: #4c4c9f;
+  }
 }
 
 html[data-theme='light'] {
@@ -69,5 +73,9 @@ html[data-theme='light'] {
     &:hover, &:focus {
       background-color: #8a8ad3;
     }
+  }
+
+  .active-button {
+    background-color: #8a8ad3;
   }
 }

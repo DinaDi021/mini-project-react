@@ -1,6 +1,27 @@
+.Container {
+    height: 80vh;
+}
+
 .MoviesPage {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    overflow-x: hidden;
+}
+
+.MoviesPage::-webkit-scrollbar {
+    width: 5px;
+    background-color: lavender;
+}
+
+.MoviesPage::-webkit-scrollbar-thumb {
+    background-color: #8a8ad3;
+}
+
+.Pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
 }

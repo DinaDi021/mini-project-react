@@ -1,51 +1,34 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
+import {useSearchParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
 import styles from './MoviesListCard/MoviesListCard.module.css'
-import {moviesService} from "../../services";
+
 import {MoviesListCard} from "./MoviesListCard/MoviesListCard";
-import {Pagination} from "../Pagination/Pagination";
+import {moviesActions} from "../../redux";
 
 
-const MoviesList = ({selectedGenreId}) => {
-    const [movies, setMovies] = useState([]);
+const MoviesList = () => {
+    const dispatch = useDispatch();
+    const {movies} = useSelector(state => state.movies);
+    const {selectedGenreId} = useSelector(state => state.genres);
+    const [query, setQuery] = useSearchParams({page: '1', genreId: ''})
+    const page = query.get('page');
+    const genreId = query.get('genreId')
 
-    const [currentPage, setCurrentPage] = useState(1);
-    const moviesPerPage = 3;
 
     useEffect(() => {
-        moviesService.getAll().then(({data}) => setMovies(data.results))
-    }, [])
+        dispatch(moviesActions.getMovies({page, genreId: selectedGenreId}))
+    }, [dispatch, page, selectedGenreId, genreId])
 
-    const filteredMovies = selectedGenreId
-        ? movies.filter((movie) => movie.genre_ids.includes(selectedGenreId))
-        : movies;
-
-    const indexOfLastMovie = currentPage * moviesPerPage;
-    const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
-    const currentMovies = filteredMovies.slice(indexOfFirstMovie, indexOfLastMovie);
-
-    const handleNextPage = () => {
-        setCurrentPage((prevPage) => prevPage + 1);
-    };
-
-    const handlePrevPage = () => {
-        setCurrentPage((prevPage) => prevPage - 1);
-    };
 
     return (
-        <div >
+        <div>
             <div className={styles.wrapper}>
-                {currentMovies.map((movie) => (
+                {movies.map((movie) => (
                     <MoviesListCard key={movie.id} movie={movie}/>
                 ))}
             </div>
-            <Pagination
-                currentPage={currentPage}
-                itemsPerPage={moviesPerPage}
-                totalItems={filteredMovies.length}
-                onNextPage={handleNextPage}
-                onPrevPage={handlePrevPage}
-            />
         </div>
     );
 };

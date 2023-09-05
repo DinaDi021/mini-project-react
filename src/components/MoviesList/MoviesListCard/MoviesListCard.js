@@ -1,8 +1,6 @@
 import {Link} from "react-router-dom";
-import {useContext} from "react";
 
 import styles from './MoviesListCard.module.css'
-import {Context} from "../../../pages";
 
 const MoviesListCard = ({movie}) => {
     const {id, title, poster_path} = movie;
@@ -10,15 +8,9 @@ const MoviesListCard = ({movie}) => {
     const imageSize = 'w500';
     const imageURL = baseURL + imageSize + poster_path;
 
-    const {setMovieId} = useContext(Context);
-
-    const handleClick = () => {
-        setMovieId(id);
-    };
-
     return (
         <div className={styles.container}>
-            <Link to={`/movie/${id}`} onClick={handleClick}>
+            <Link to={`/movie/${id}`}>
             <div>
                 <img className={styles.image} src={imageURL} alt={title}/>
             </div>

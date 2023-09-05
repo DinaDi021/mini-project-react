@@ -1,5 +1,6 @@
 import {Outlet} from "react-router-dom";
 import {Footer, Header, Sidebar} from "../../components";
+import styles from './MainLayout.module.css'
 
 const MainLayout = () => {
     return (
@@ -7,7 +8,7 @@ const MainLayout = () => {
             <div>
                 <Header/>
             </div>
-            <div style={{display: 'flex', height: '80vh'}}>
+            <div className={styles.container}>
                 <Sidebar/>
                 <Outlet/>
             </div>
