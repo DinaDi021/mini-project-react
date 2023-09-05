@@ -24,7 +24,10 @@ const genreSlice = createSlice({
     reducers: {
         setGenre: (state, action) => {
             state.selectedGenreId = action.payload;
-        }
+        },
+        clearGenre: (state) => {
+            state.selectedGenreId = null;
+        },
     },
     extraReducers: builder => builder
         .addCase(getGenre.fulfilled, (state, action) =>{
@@ -33,11 +36,12 @@ const genreSlice = createSlice({
         })
 })
 
-const {reducer: genreReducer, actions: {setGenre}} = genreSlice;
+const {reducer: genreReducer, actions: {setGenre, clearGenre}} = genreSlice;
 
 const genreActions = {
     getGenre,
-    setGenre
+    setGenre,
+    clearGenre
 }
 
 export {

@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import styles from './MoviesListCard/MoviesListCard.module.css'
 
 import {MoviesListCard} from "./MoviesListCard/MoviesListCard";
-import {moviesActions} from "../../redux";
+import {genreActions, moviesActions} from "../../redux";
 
 
 const MoviesList = () => {
@@ -20,7 +20,6 @@ const MoviesList = () => {
     useEffect(() => {
         dispatch(moviesActions.getMovies({page, genreId: selectedGenreId}))
     }, [dispatch, page, selectedGenreId, genreId])
-
 
     return (
         <div>

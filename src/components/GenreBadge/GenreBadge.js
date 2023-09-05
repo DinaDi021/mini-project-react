@@ -7,10 +7,8 @@ import {useSearchParams} from "react-router-dom";
 
 const GenreBadge = () => {
     const dispatch = useDispatch();
-    const {genres} = useSelector(state => state.genres);
+    const {genres, selectedGenreId} = useSelector(state => state.genres);
     const [query, setQuery] = useSearchParams();
-
-    const [activeGenreId, setActiveGenreId] = useState(null);
 
     useEffect(() => {
         dispatch(genreActions.getGenre())
@@ -21,7 +19,6 @@ const GenreBadge = () => {
         if (genre) {
             setQuery({...query, page: 1, genre: genre.name});
             dispatch(genreActions.setGenre(genreId));
-            setActiveGenreId(genreId);
         }
     };
 
@@ -30,14 +27,14 @@ const GenreBadge = () => {
             {genres.map((genre) => (
                 <button
                     key={genre.id}
-                    onClick={() => handleGenreClick(genre.id, genre.name)}
-                    className={activeGenreId === genre.id ? "active-button" : ""}
+                    onClick={() => handleGenreClick(genre.id)}
+                    className={selectedGenreId === genre.id ? styles.activeButton : ''}
                 >
                     {genre.name}
                 </button>
-                    ))}
-                </div>
-            );
-            };
+            ))}
+        </div>
+    );
+};
 
-            export {GenreBadge};
+export {GenreBadge};

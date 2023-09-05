@@ -50,7 +50,7 @@ html[data-theme='dark'] {
   button {
     background-color: #30124d;
 
-    &:hover, &:focus {
+    &:hover {
       background-color: #4c4c9f;
     }
   }
@@ -70,12 +70,12 @@ html[data-theme='light'] {
   button {
     background-color: lavender;
 
-    &:hover, &:focus {
+    &:hover {
       background-color: #8a8ad3;
     }
   }
 
-  .active-button {
+  .activeButton {
     background-color: #8a8ad3;
   }
 }
