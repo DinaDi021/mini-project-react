@@ -1,45 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 
 import styles from "./TopRatedCard/TopRatedCard.module.css";
 import {TopRatedCard} from "./TopRatedCard/TopRatedCard";
-import { topRatedService} from "../../services";
-import {SortComponent} from "../Sort/Sort";
+import {useDispatch, useSelector} from "react-redux";
+import {useSearchParams} from "react-router-dom";
+import {topRatedActions} from "../../redux";
+
 
 const TopRated = () => {
-    const [topRated, setTopRated] = useState([]);
-    const [sortOrder, setSortOrder] = useState('asc');
-    const [sortedTopRated, setSortedTopRated] = useState([]);
-
-
-    useEffect( () => {
-        topRatedService.getAll(sortOrder).then(({data}) => setTopRated(data.results))
-    }, [sortOrder])
+    const dispatch = useDispatch();
+    const {topRated} = useSelector(state => state.topRated);
+    const [query, setQuery] = useSearchParams({page: '1'})
+    const page = query.get('page');
 
     useEffect(() => {
-        const sorted = [...topRated].sort((a, b) => {
-            if (sortOrder === 'asc') {
-                return a.vote_average - b.vote_average;
-            } else {
-                return b.vote_average - a.vote_average;
-            }
-        });
-        setSortedTopRated(sorted);
-    }, [topRated, sortOrder]);
-
-    const handleSortChange = (newSortOrder) => {
-        setSortOrder(newSortOrder);
-    };
+        dispatch(topRatedActions.getTopRatedMovies({page}));
+    }, [dispatch, page]);
 
     return (
         <div>
             <div className={styles.wrapper}>
-                <SortComponent sortOrder={sortOrder} onSortChange={handleSortChange} />
                 <div className={styles.containerFilm}>
-                    {sortedTopRated.map((topRat) => (
-                        <TopRatedCard key={topRat.id} topRat={topRat} />
+                    {topRated.map((topRat) => (
+                        <TopRatedCard key={topRat.id} topRat={topRat}/>
                     ))}
                 </div>
-        </div>
+            </div>
         </div>
     );
 };

@@ -1,16 +1,23 @@
 import {createContext, useState} from "react";
 
-import {TopRated} from "../../components";
-
+import {Paginations, TopRated} from "../../components";
+import styles from "../MoviesPage/MoviesPage.module.css";
+import {useSelector} from "react-redux";
 
 const RatedContext = createContext(null);
 const TopRatedPages = () => {
-    const [movieId, setMovieId] = useState(null);
+    const {totalPages} = useSelector(state => state.topRated);
 
+    const [movieId, setMovieId] = useState(null);
     return (
         <div>
             <RatedContext.Provider value={{setMovieId}}>
-            <TopRated/>
+                <div>
+                    <TopRated/>
+                </div>
+                <div className={styles.Pagination}>
+                    <Paginations totalPages={totalPages}/>
+                </div>
             </RatedContext.Provider>
         </div>
     );

@@ -25,6 +25,7 @@ export * from './Upcoming/UpcomingCard/UpcomingCard'
 export * from './Upcoming/UpcomingCard/UpcomingCard.module.css'
 export * from './UserInfo/UserInfo'
 export * from './UserInfo/UserInfo.module.css'
+export * from './Pagination'
 
 
 

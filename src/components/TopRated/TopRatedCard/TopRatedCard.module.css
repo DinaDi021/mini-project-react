@@ -1,6 +1,6 @@
 .wrapper {
     width: 80vw;
-    height: 70vh;
+    height: 55vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -8,7 +8,6 @@
     margin: 20px;
     overflow-x: hidden;
 }
-
 
 .wrapper::-webkit-scrollbar {
     width: 5px;

@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 import styles from './GenreBadge.module.css'
 import {useDispatch, useSelector} from "react-redux";
@@ -22,6 +22,10 @@ const GenreBadge = () => {
         }
     };
 
+    const handleAllMoviesClick = async () => {
+        await dispatch(genreActions.clearGenre())
+    }
+
     return (
         <div className={styles.container}>
             {genres.map((genre) => (
@@ -33,6 +37,7 @@ const GenreBadge = () => {
                     {genre.name}
                 </button>
             ))}
+            <button onClick={handleAllMoviesClick}>All movies</button>
         </div>
     );
 };

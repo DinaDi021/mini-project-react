@@ -1,30 +1,8 @@
-import {useSearchParams} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {Pagination} from "@mui/material";
-import {useEffect} from "react";
-
 import styles from './MoviesPage.module.css'
-import {GenreBadge, MoviesList} from "../../components";
-import {genreActions} from "../../redux";
-
-
-
+import {GenreBadge, MoviesList, Paginations} from "../../components";
+import {useSelector} from "react-redux";
 const MoviesPage = () => {
-    const dispatch = useDispatch();
-    const [query, setQuery] = useSearchParams()
-    const {totalPages} = useSelector(state => state.movies)
-    const currentPage = +query.get('page') || '1';
-    const selectedGenre = query.get('genre') || '';
-
-    useEffect(() => {
-        dispatch(genreActions.clearGenre());
-    }, [dispatch]);
-
-
-    const queryParams = {
-        page: currentPage.toString(),
-        ...(selectedGenre && { genre: selectedGenre }),
-    };
+    const {totalPages} = useSelector(state => state.movies);
 
     return (
         <div className={styles.Container}>
@@ -33,15 +11,7 @@ const MoviesPage = () => {
                 <MoviesList/>
             </div>
             <div className={styles.Pagination}>
-                <Pagination
-                    count={totalPages}
-                    page={+currentPage}
-                    variant="outlined"
-                    color="secondary"
-                    onChange={(e, page) => {
-                        queryParams.page = page.toString();
-                        setQuery(queryParams);
-                    }}/>
+                <Paginations totalPages={totalPages}/>
             </div>
         </div>
     );

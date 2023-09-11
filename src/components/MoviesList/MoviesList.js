@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import styles from './MoviesListCard/MoviesListCard.module.css'
 
 import {MoviesListCard} from "./MoviesListCard/MoviesListCard";
-import {genreActions, moviesActions} from "../../redux";
+import {moviesActions} from "../../redux";
 
 
 const MoviesList = () => {

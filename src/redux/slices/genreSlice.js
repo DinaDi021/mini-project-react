@@ -32,7 +32,6 @@ const genreSlice = createSlice({
     extraReducers: builder => builder
         .addCase(getGenre.fulfilled, (state, action) =>{
             state.genres = action.payload
-
         })
 })
 
