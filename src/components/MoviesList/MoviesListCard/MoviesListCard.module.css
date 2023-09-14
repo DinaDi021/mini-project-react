@@ -2,6 +2,12 @@
     width: 30%;
     margin: 20px;
     position: relative;
+    transition: transform 0.5s ease;
+}
+
+.container:hover .stars{
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .info{
@@ -9,12 +15,15 @@
     position: absolute;
     bottom: 3px;
 }
+.imageDiv{
+    position: relative;
+}
 
 .image {
     width: 20vw;
     height: 50vh;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .image:hover {
@@ -35,4 +44,19 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.stars{
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    background-color: white;
+    padding: 5px 10px;
+    opacity: 0.8;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+    transform: translateY(100%);
 }

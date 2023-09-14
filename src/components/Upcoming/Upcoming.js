@@ -1,21 +1,25 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 
 import styles from './UpcomingCard/UpcomingCard.module.css'
-import {upcomingService} from "../../services";
 import {UpcomingCard} from "./UpcomingCard/UpcomingCard";
+import {useDispatch, useSelector} from "react-redux";
+import {upcomingActions} from "../../redux/slices/upcomongSlice";
+import {useSearchParams} from "react-router-dom";
 
 const Upcoming = () => {
-    const [upcomingMovies, setUpcomingMovies] = useState([]);
+    const dispatch = useDispatch();
+    const {upcomingMovies} = useSelector(state => state.upcoming);
+    const [query, setQuery] = useSearchParams({page: '1'})
+    const page = query.get('page')
 
-    useEffect( () => {
-        upcomingService.getAll().then(({data}) => setUpcomingMovies(data.results))
-    }, [])
+    useEffect(() => {
+        dispatch(upcomingActions.getMovies({page}))
+    }, [dispatch, page])
 
     return (
         <div className={styles.container}>
             <h3>Released soon:</h3>
             {upcomingMovies.map((upcomingMovie) => (
-
                 <UpcomingCard key={upcomingMovie.id} upcomingMovie={upcomingMovie}/>
             ))}
         </div>

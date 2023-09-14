@@ -9,7 +9,7 @@ import {topRatedActions} from "../../redux";
 
 const TopRated = () => {
     const dispatch = useDispatch();
-    const {topRated} = useSelector(state => state.topRated);
+    const {topRated } = useSelector(state => state.topRated);
     const [query, setQuery] = useSearchParams({page: '1'})
     const page = query.get('page');
 
@@ -20,6 +20,7 @@ const TopRated = () => {
     return (
         <div>
             <div className={styles.wrapper}>
+
                 <div className={styles.containerFilm}>
                     {topRated.map((topRat) => (
                         <TopRatedCard key={topRat.id} topRat={topRat}/>

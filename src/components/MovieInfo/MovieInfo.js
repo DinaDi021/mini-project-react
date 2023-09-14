@@ -1,21 +1,23 @@
-import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import React, {useEffect} from "react";
 
-import {movieService} from "../../services";
 import {MovieInfoDetails} from "./MovieInfoDetails/MovieInfoDetails";
+import {useDispatch, useSelector} from "react-redux";
+import {moviesActions} from "../../redux";
 
 
 const MovieInfo = () => {
-    const [movie, setMovie] = useState([]);
-    const {id} = useParams()
+    const dispatch = useDispatch();
+    const {selectedMovie} = useSelector(state => state.movies);
 
-    useEffect( () => {
-        movieService.getById(id).then(({data}) => setMovie(data))
-    }, [id])
+    useEffect(() => {
+        if (selectedMovie) {
+            dispatch(moviesActions.getMovieById({id: selectedMovie.id}));
+        }
+    }, [dispatch, selectedMovie]);
 
     return (
         <div>
-            {movie && <MovieInfoDetails movie={movie}/>}
+            {selectedMovie && <MovieInfoDetails selectedMovie={selectedMovie}/>}
         </div>
     );
 };

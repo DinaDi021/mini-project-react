@@ -3,8 +3,10 @@ import {topRatedService} from "../../services";
 
 const initialState = {
     topRated: [],
+    sortedTopRated: [],
     page: 0,
     totalPages: 0,
+    sortOrder: 'asc',
     errors: null
 }
 
@@ -28,6 +30,12 @@ const topRatedSlice = createSlice({
     reducers: {
         setTotalPages: (state, action) => {
             state.totalPages = action.payload;
+        },
+        setSortedTopRated: (state, action) => {
+            state.sortedTopRated = action.payload;
+        },
+        setSortOrder: (state, action) => {
+            state.sortOrder = action.payload;
         }
     },
     extraReducers: builder => builder
@@ -46,7 +54,7 @@ const {reducer: topRatedReducer, actions} = topRatedSlice;
 
 const topRatedActions = {
     ...actions,
-    getTopRatedMovies
+    getTopRatedMovies,
 }
 
 export {

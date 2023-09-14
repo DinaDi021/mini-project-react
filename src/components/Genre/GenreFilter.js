@@ -5,14 +5,16 @@ import {useDispatch, useSelector} from "react-redux";
 import {genreActions} from "../../redux";
 import {useSearchParams} from "react-router-dom";
 
-const GenreBadge = () => {
+const GenreFilter = () => {
     const dispatch = useDispatch();
     const {genres, selectedGenreId} = useSelector(state => state.genres);
     const [query, setQuery] = useSearchParams();
 
     useEffect(() => {
-        dispatch(genreActions.getGenre())
-    }, [dispatch]);
+        if (genres.length === 0) {
+            dispatch(genreActions.getGenre());
+        }
+    }, [dispatch, genres]);
 
     const handleGenreClick = (genreId) => {
         const genre = genres.find((genre) => genre.id === genreId);
@@ -42,4 +44,4 @@ const GenreBadge = () => {
     );
 };
 
-export {GenreBadge};
+export {GenreFilter};

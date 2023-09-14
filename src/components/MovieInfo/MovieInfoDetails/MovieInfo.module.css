@@ -36,3 +36,10 @@
     justify-content: space-evenly;
 }
 
+.GenreBadge {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+

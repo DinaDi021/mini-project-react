@@ -1,5 +1,5 @@
 import styles from './MoviesPage.module.css'
-import {GenreBadge, MoviesList, Paginations} from "../../components";
+import {GenreFilter, MoviesList, Paginations} from "../../components";
 import {useSelector} from "react-redux";
 const MoviesPage = () => {
     const {totalPages} = useSelector(state => state.movies);
@@ -7,7 +7,7 @@ const MoviesPage = () => {
     return (
         <div className={styles.Container}>
             <div className={styles.MoviesPage}>
-                <GenreBadge/>
+                <GenreFilter/>
                 <MoviesList/>
             </div>
             <div className={styles.Pagination}>
