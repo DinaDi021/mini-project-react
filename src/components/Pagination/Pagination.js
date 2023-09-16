@@ -5,13 +5,18 @@ import {Pagination} from "@mui/material";
 const Paginations = ({totalPages}) => {
     const [query, setQuery] = useSearchParams()
     const currentPage = +query.get('page') || '1';
-    const selectedGenre = query.get('genre') || '';
-
-
+    const selectedGenre = query.get('genreId') || '';
+    const selectedSort = query.get('sorted') || '';
 
     const queryParams = {
         page: currentPage.toString(),
-        ...(selectedGenre && { genre: selectedGenre }),
+        ...(selectedGenre && { genreId: selectedGenre}),
+        ...(selectedSort && {sorted: selectedSort})
+    };
+
+    const handlePageChange = (e, page) => {
+        queryParams.page = page;
+        setQuery(queryParams);
     };
 
     return (
@@ -21,10 +26,7 @@ const Paginations = ({totalPages}) => {
                 page={+currentPage}
                 variant="outlined"
                 color="secondary"
-                onChange={(e, page) => {
-                    queryParams.page = page.toString();
-                    setQuery(queryParams);
-                }}/>
+                onChange={handlePageChange}/>
         </div>
     );
 };

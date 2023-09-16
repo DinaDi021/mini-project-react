@@ -1,28 +1,25 @@
 .wrapper {
     width: 80vw;
-    height: 55vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 20px;
-    overflow-x: hidden;
 }
 
-.wrapper::-webkit-scrollbar {
-    width: 5px;
-    background-color: lavender;
-}
+/*.wrapper::-webkit-scrollbar {*/
+/*    width: 5px;*/
+/*    background-color: lavender;*/
+/*}*/
 
-.wrapper::-webkit-scrollbar-thumb {
-    background-color: #8a8ad3;
-}
+/*.wrapper::-webkit-scrollbar-thumb {*/
+/*    background-color: #8a8ad3;*/
+/*}*/
 
 .containerFilm{
     display: flex;
     justify-content: space-between;
     width: 75vw;
-    height: 65vh;
     flex-wrap: wrap;
 }
 

@@ -1,7 +1,19 @@
 body {
   margin: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  height: 100%;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar{
+    width: 10px;
+    background-color: lavender;
+
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #8a8ad3;
+    border-radius: 10px;
+  }
 }
 
 a {

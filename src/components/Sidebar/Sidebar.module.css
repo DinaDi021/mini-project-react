@@ -1,11 +1,10 @@
 .container {
-    height: 80vh;
     width: 15vw;
+    height: 500vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    overflow-x: hidden;
 }
 
 html[data-theme='light'] .container {

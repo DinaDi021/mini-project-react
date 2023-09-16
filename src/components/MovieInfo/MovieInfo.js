@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 import {MovieInfoDetails} from "./MovieInfoDetails/MovieInfoDetails";
-import {useDispatch, useSelector} from "react-redux";
 import {moviesActions} from "../../redux";
 
 

@@ -1,4 +1,5 @@
 export * from './TopRatedPages/TopRatedPages'
 export * from './MoviesPage/MoviesPage'
+export * from './MoviesPage/MoviesPage.module.css'
 export * from './MoviePage/MoviePage'
 export * from './NotFoundPage/NotFoundPage'

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BiDoorOpen } from 'react-icons/bi';
 
 import styles from './UserInfo.module.css'

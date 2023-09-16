@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
-
-import styles from "./TopRatedCard/TopRatedCard.module.css";
-import {TopRatedCard} from "./TopRatedCard/TopRatedCard";
 import {useDispatch, useSelector} from "react-redux";
 import {useSearchParams} from "react-router-dom";
-import {topRatedActions} from "../../redux";
 
+import styles from "./TopRatedCard/TopRatedCard.module.css";
+
+import {TopRatedCard} from "./TopRatedCard/TopRatedCard";
+import {topRatedActions} from "../../redux";
 
 const TopRated = () => {
     const dispatch = useDispatch();

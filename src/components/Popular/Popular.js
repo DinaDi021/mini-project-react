@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
-
-import {PopularCard} from "./PopularCard/PopularCard";
-import styles from "../Upcoming/UpcomingCard/UpcomingCard.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {useSearchParams} from "react-router-dom";
-import {popularActions} from "../../redux/slices/popularSlice";
+
+import styles from "../Upcoming/UpcomingCard/UpcomingCard.module.css";
+
+import {PopularCard} from "./PopularCard/PopularCard";
+import {popularActions} from "../../redux";
 
 const Popular = () => {
     const dispatch = useDispatch();

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { videoService } from '../../services/videoService';
 import styles from '../MovieInfo/MovieInfoDetails/MovieInfo.module.css'
+
+import {videoService} from "../../services";
 
 const PosterPreview = () => {
     const [videos, setVideos] = useState([]);

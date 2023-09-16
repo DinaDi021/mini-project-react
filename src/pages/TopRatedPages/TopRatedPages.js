@@ -1,6 +1,10 @@
-import {Paginations, TopRated} from "../../components";
-import styles from "../MoviesPage/MoviesPage.module.css";
 import {useSelector} from "react-redux";
+
+import styles from "../MoviesPage/MoviesPage.module.css";
+
+import {Paginations, TopRated} from "../../components";
+
+
 
 const TopRatedPages = () => {
     const {totalPages} = useSelector(state => state.topRated);

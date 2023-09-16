@@ -6,7 +6,6 @@ const upcoming = '/movie/upcoming'
 const popular = '/movie/popular'
 const genre = '/genre/movie/list'
 const movie = '/movie'
-const video = '/movie'
 
 const urls = {
     movies,
@@ -18,7 +17,10 @@ const urls = {
         byId: (id) => `${movie}/${id}`
     },
     video: {
-        byId: (id) => `${video}/${id}/videos`
+        byId: (id) => `${movie}/${id}/videos`
+    },
+    actors:{
+        byId: (id) => `${movie}/${id}/credits`
     }
 }
 

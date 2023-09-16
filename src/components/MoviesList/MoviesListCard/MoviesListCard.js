@@ -1,7 +1,8 @@
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 import styles from './MoviesListCard.module.css'
-import {useDispatch} from "react-redux";
+
 import {moviesActions} from "../../../redux";
 import {StarRating} from "../../StarRating/StarRating";
 

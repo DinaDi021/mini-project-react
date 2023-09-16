@@ -1,7 +1,6 @@
 import React from "react";
 import {useEffect, useState} from "react";
 
-
 import {ThemeSwitch} from "../ThemeSwitch/ThemeSwitch";
 
 const Footer = () => {

@@ -1,0 +1,6 @@
+.sortDiv {
+    display: flex;
+    align-items: center;
+    width: 20vw;
+    padding: 15px;
+}

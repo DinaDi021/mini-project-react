@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {useSearchParams} from "react-router-dom";
 
 import styles from './UpcomingCard/UpcomingCard.module.css'
+
 import {UpcomingCard} from "./UpcomingCard/UpcomingCard";
-import {useDispatch, useSelector} from "react-redux";
-import {upcomingActions} from "../../redux/slices/upcomongSlice";
-import {useSearchParams} from "react-router-dom";
+import {upcomingActions} from "../../redux";
 
 const Upcoming = () => {
     const dispatch = useDispatch();

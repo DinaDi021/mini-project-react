@@ -1,4 +1,5 @@
 import styles from './Sidebar.module.css'
+
 import {Upcoming} from "../Upcoming/Upcoming";
 import {Popular} from "../Popular/Popular";
 

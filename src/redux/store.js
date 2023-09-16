@@ -1,7 +1,6 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {genreReducer, moviesReducer, topRatedReducer} from "./slices";
-import {popularReducer} from "./slices/popularSlice";
-import {upcomingReducer} from "./slices/upcomongSlice";
+
+import {actorsReducer, genreReducer, moviesReducer, popularReducer, topRatedReducer, upcomingReducer} from "./slices";
 
 const store = configureStore({
     reducer: {
@@ -9,7 +8,8 @@ const store = configureStore({
         genres: genreReducer,
         topRated: topRatedReducer,
         popular: popularReducer,
-        upcoming: upcomingReducer
+        upcoming: upcomingReducer,
+        actors: actorsReducer
     }
 })
 

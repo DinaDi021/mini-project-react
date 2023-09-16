@@ -1,8 +1,10 @@
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 import styles from './UpcomingCard.module.css'
+
 import {moviesActions} from "../../../redux";
-import {useDispatch} from "react-redux";
+
 
 const UpcomingCard = ({upcomingMovie}) => {
     const dispatch = useDispatch();

@@ -1,7 +1,9 @@
 import styles from './MovieInfo.module.css'
-import {PosterPreview} from "../../PosterPreview/PosterPreview";
 
+import {PosterPreview} from "../../PosterPreview/PosterPreview";
 import {GenreBadge} from "../../Genre/GenreBadge";
+import {Genre} from "../../Genre/Genre";
+import {Cast} from "../../Cast/Cast";
 
 const MovieInfoDetails = ({selectedMovie}) => {
     const {title, overview, release_date, vote_average, poster_path} = selectedMovie;
@@ -20,9 +22,16 @@ const MovieInfoDetails = ({selectedMovie}) => {
                     <p>{overview}</p>
                 </div>
                 <p><b>Release date:</b> {release_date}</p>
+                <Genre/>
                 <GenreBadge/>
                 <div>
                     <PosterPreview/>
+                </div>
+                <div>
+                   <h2>
+                       Actors starring:
+                   </h2>
+                    <Cast/>
                 </div>
             </div>
             <div>

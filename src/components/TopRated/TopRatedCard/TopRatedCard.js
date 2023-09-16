@@ -1,9 +1,11 @@
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 import styles from "../TopRatedCard/TopRatedCard.module.css";
+
 import {StarRating} from "../../StarRating/StarRating";
 import {moviesActions} from "../../../redux";
-import {useDispatch} from "react-redux";
+
 
 const TopRatedCard = ({topRat}) => {
     const dispatch = useDispatch();
