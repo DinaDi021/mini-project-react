@@ -1,5 +1,7 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+
 import {movieService, moviesService} from "../../services";
+import {progressActions} from "./ProgressSlice";
 
 const savedMovie = localStorage.getItem('selectedMovie');
 const initialState = {
@@ -16,12 +18,15 @@ const getMovies = createAsyncThunk(
     'moviesSlice/getMovies',
     async ({page, genreId, sorted}, thunkAPI) => {
         try {
+            thunkAPI.dispatch(progressActions.setIsLoading(true))
             const response = await moviesService.getAll(page, genreId, sorted);
             const {total_pages, results} = response.data;
             thunkAPI.dispatch(moviesActions.setTotalPages(total_pages));
             return {total_pages, results};
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
+        } finally {
+            thunkAPI.dispatch(progressActions.setIsLoading(false))
         }
     }
 )
@@ -30,10 +35,13 @@ const getMovieById = createAsyncThunk(
     'moviesSlice/getMovieById',
     async ({id}, thunkApi) => {
         try {
+            thunkApi.dispatch(progressActions.setIsLoading(true))
             const {data} = await movieService.getById(id);
             return data;
         } catch (e) {
             return thunkApi.rejectWithValue(e.response.data)
+        }finally {
+            thunkApi.dispatch(progressActions.setIsLoading(false))
         }
     }
 )
@@ -65,10 +73,11 @@ const moviesSlice = createSlice({
                     state.movies = [...state.movies].sort((a, b) => b.vote_average - a.vote_average);
                     break;
                 case "release_date.asc":
-                    state.movies = [...state.movies].sort((a, b) => a.release_date.localeCompare(b.release_date));
+                    state.movies = [...state.movies].sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
                     break;
                 case "release_date.desc":
-                    state.movies = [...state.movies].sort((a, b) => b.release_date.localeCompare(a.release_date));
+                    state.movies = [...state.movies].sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+                    break;
                     break;
                 case "none":
                     state.selectedSortBy = null;

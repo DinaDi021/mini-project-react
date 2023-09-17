@@ -6,9 +6,11 @@ import styles from "./TopRatedCard/TopRatedCard.module.css";
 
 import {TopRatedCard} from "./TopRatedCard/TopRatedCard";
 import {topRatedActions} from "../../redux";
+import {IsLoading} from "../IsLoading/IsLoading";
 
 const TopRated = () => {
     const dispatch = useDispatch();
+    const {isLoading} = useSelector(state => state.progress)
     const {topRated } = useSelector(state => state.topRated);
     const [query, setQuery] = useSearchParams({page: '1'})
     const page = query.get('page');
@@ -19,14 +21,17 @@ const TopRated = () => {
 
     return (
         <div>
-            <div className={styles.wrapper}>
-
-                <div className={styles.containerFilm}>
-                    {topRated.map((topRat) => (
-                        <TopRatedCard key={topRat.id} topRat={topRat}/>
-                    ))}
+            {isLoading ? (
+                <IsLoading />
+            ) : (
+                <div className={styles.wrapper}>
+                    <div className={styles.containerFilm}>
+                        {topRated.map((topRat) => (
+                            <TopRatedCard key={topRat.id} topRat={topRat}/>
+                        ))}
+                    </div>
                 </div>
-            </div>
+                )}
         </div>
     );
 };

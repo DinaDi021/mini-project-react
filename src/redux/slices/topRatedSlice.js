@@ -1,5 +1,7 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+
 import {topRatedService} from "../../services";
+import {progressActions} from "./ProgressSlice";
 
 const initialState = {
     topRated: [],
@@ -14,12 +16,15 @@ const getTopRatedMovies = createAsyncThunk(
     'topRatedSlice/getTopRatedMovies',
     async ({ page }, thunkAPI) => {
         try {
+            thunkAPI.dispatch(progressActions.setIsLoading(true))
             const response = await topRatedService.getAll(page);
             const { total_pages, results } = response.data;
             thunkAPI.dispatch(topRatedActions.setTotalPages(total_pages));
             return { total_pages, results };
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data);
+        } finally {
+            thunkAPI.dispatch(progressActions.setIsLoading(false))
         }
     }
 );

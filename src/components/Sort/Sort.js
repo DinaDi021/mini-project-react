@@ -1,7 +1,10 @@
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useSearchParams} from "react-router-dom";
+
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 import styles from './Sort.module.css'
 
@@ -10,7 +13,6 @@ import {moviesActions} from "../../redux";
 const SortComponent = () => {
     const dispatch = useDispatch();
     const {selectedSortBy} = useSelector((state) => state.movies);
-    const {selectedGenreName} = useSelector(state => state.genres);
     const [query, setQuery] = useSearchParams();
     const selectedSort = query.get('sorted');
 
@@ -22,7 +24,7 @@ const SortComponent = () => {
 
     const handleSortChange = (event) => {
         const selectedSortBy = event.target.value;
-        setQuery({ ...query, sorted: selectedSortBy,genreId:selectedGenreName })
+        setQuery({ ...query, sorted: selectedSortBy })
         dispatch(moviesActions.setSortBy(selectedSortBy));
     };
 
@@ -38,12 +40,12 @@ const SortComponent = () => {
                     value={selectedSortBy || ""}
                 >
                     <MenuItem value="None">None</MenuItem>
-                    <MenuItem value="popularity.asc">Popularity (Asc)</MenuItem>
-                    <MenuItem value="popularity.desc">Popularity (Desc)</MenuItem>
-                    <MenuItem value="vote_average.asc">Vote Average (Asc)</MenuItem>
-                    <MenuItem value="vote_average.desc">Vote Average (Desc)</MenuItem>
-                    <MenuItem value="release_date.asc">Release Date (Asc)</MenuItem>
-                    <MenuItem value="release_date.desc">Release Date (Desc)</MenuItem>
+                    <MenuItem value="popularity.asc">Popularity <ArrowUpwardIcon></ArrowUpwardIcon> </MenuItem>
+                    <MenuItem value="popularity.desc">Popularity <ArrowDownwardIcon></ArrowDownwardIcon></MenuItem>
+                    <MenuItem value="vote_average.asc">Vote Average <ArrowUpwardIcon></ArrowUpwardIcon></MenuItem>
+                    <MenuItem value="vote_average.desc">Vote Average <ArrowDownwardIcon></ArrowDownwardIcon></MenuItem>
+                    <MenuItem value="release_date.asc">Release Date <ArrowUpwardIcon></ArrowUpwardIcon></MenuItem>
+                    <MenuItem value="release_date.desc">Release Date <ArrowDownwardIcon></ArrowDownwardIcon></MenuItem>
                 </Select>
             </FormControl>
         </div>

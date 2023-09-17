@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {RouterProvider} from "react-router-dom";
+import {Provider} from "react-redux";
+
+import './styles.scss'
 
 import {router} from "./router";
-import './styles.scss'
-import {Provider} from "react-redux";
 import {store} from "./redux";
 
 

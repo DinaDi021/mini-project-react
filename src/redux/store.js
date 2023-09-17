@@ -1,6 +1,14 @@
 import {configureStore} from "@reduxjs/toolkit";
 
-import {actorsReducer, genreReducer, moviesReducer, popularReducer, topRatedReducer, upcomingReducer} from "./slices";
+import {
+    actorsReducer,
+    genreReducer,
+    moviesReducer,
+    popularReducer, progressReducer,
+    searchMoviesReducer,
+    topRatedReducer,
+    upcomingReducer
+} from "./slices";
 
 const store = configureStore({
     reducer: {
@@ -9,7 +17,9 @@ const store = configureStore({
         topRated: topRatedReducer,
         popular: popularReducer,
         upcoming: upcomingReducer,
-        actors: actorsReducer
+        actors: actorsReducer,
+        searchMovies: searchMoviesReducer,
+        progress: progressReducer
     }
 })
 

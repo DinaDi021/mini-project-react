@@ -5,7 +5,6 @@ import styles from './UpcomingCard.module.css'
 
 import {moviesActions} from "../../../redux";
 
-
 const UpcomingCard = ({upcomingMovie}) => {
     const dispatch = useDispatch();
     const {id, title, poster_path} = upcomingMovie;

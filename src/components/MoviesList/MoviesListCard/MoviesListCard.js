@@ -5,6 +5,7 @@ import styles from './MoviesListCard.module.css'
 
 import {moviesActions} from "../../../redux";
 import {StarRating} from "../../StarRating/StarRating";
+import empty from '../../../assets/image/empty.jpg'
 
 const MoviesListCard = ({movie}) => {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const MoviesListCard = ({movie}) => {
         <div className={styles.container}>
             <Link to={`/movie/${id}`} onClick={handleMovieClick}>
             <div>
-                <img className={styles.image} src={imageURL} alt={title}/>
+                <img className={styles.image} src={poster_path? imageURL: empty } alt={title}/>
                 <div className={styles.stars}>
                     <StarRating value={vote_average}/>
                     <span style={{marginLeft: '10px'}}>{vote_average}</span>

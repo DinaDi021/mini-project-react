@@ -7,15 +7,6 @@
     margin: 20px;
 }
 
-/*.wrapper::-webkit-scrollbar {*/
-/*    width: 5px;*/
-/*    background-color: lavender;*/
-/*}*/
-
-/*.wrapper::-webkit-scrollbar-thumb {*/
-/*    background-color: #8a8ad3;*/
-/*}*/
-
 .containerFilm{
     display: flex;
     justify-content: space-between;
@@ -24,8 +15,8 @@
 }
 
 .image{
-    width: 20vw;
-    height: 50vh;
+    width: 15vw;
+    height: 40vh;
     object-fit: cover;
     transition: transform 0.3s ease;
     padding: 15px 0;
@@ -36,7 +27,7 @@
 }
 
 .CardFilm {
-    width: 30%;
+    width: 25%;
 }
 
 .CardFilm h3 {

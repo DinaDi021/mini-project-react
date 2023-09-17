@@ -1,5 +1,5 @@
 .container {
-    width: 30%;
+    width: 20%;
     margin: 20px;
     position: relative;
     transition: transform 0.5s ease;
@@ -20,8 +20,8 @@
 }
 
 .image {
-    width: 20vw;
-    height: 50vh;
+    width: 15vw;
+    height: 40vh;
     object-fit: cover;
     transition: transform 0.5s ease;
 }

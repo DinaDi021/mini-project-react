@@ -1,6 +1,6 @@
 .container {
     width: 15vw;
-    height: 500vh;
+    height: 300vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

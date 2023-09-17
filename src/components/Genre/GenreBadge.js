@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+import {Link, useSearchParams} from "react-router-dom";
 
 import styles from '../MovieInfo/MovieInfoDetails/MovieInfo.module.css'
 
@@ -10,28 +10,28 @@ const GenreBadge = () => {
     const {genres, selectedGenreId} = useSelector(state => state.genres);
     const {selectedMovie} = useSelector(state => state.movies)
     const selectedMovieGenres = selectedMovie.genre_ids
-
-    const selectedGenres = selectedMovieGenres.map((genreId) => {
-        return genres.find((genre) => genre.id === genreId)?.name || "";
-    });
+    const [query, setQuery] = useSearchParams();
 
     const handleGenreClick = (genreId) => {
-        dispatch(genreActions.setGenre(genreId));
+        setQuery({ ...query, genreId });
+        dispatch(genreActions.setGenre({ id: genreId }));
     };
 
     return (
         <div className={styles.GenreBadge}>
-            {selectedGenres.map((genreName, index) => {
-                const genre = genres.find((genre) => genre.name === genreName);
+            {selectedMovieGenres.map((genreId, index) => {
+                const genre = genres.find((genre) => genre.id === genreId);
                 return (
                     <Link
                         key={index}
-                        to={`/movies?genre=${genreName}`}
+                        to={`/movies?genreId=${genreId}`}
                     >
                         <button
-                            className={selectedGenreId === genre?.id ? styles.activeButton : ''}
-                            onClick={() => handleGenreClick(genre?.id)}>
-                            {genreName}
+                            key={index}
+                            className={selectedGenreId === genre.id ? styles.activeButton : ''}
+                            onClick={() => handleGenreClick(genre.id)}
+                        >
+                            {genre.name}
                         </button>
                     </Link>
                 );

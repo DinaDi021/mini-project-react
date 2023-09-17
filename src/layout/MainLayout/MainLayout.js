@@ -1,6 +1,8 @@
 import {Outlet} from "react-router-dom";
-import {Footer, Header, Sidebar} from "../../components";
+
 import styles from './MainLayout.module.css'
+
+import {Footer, Header, Sidebar} from "../../components";
 
 const MainLayout = () => {
     return (

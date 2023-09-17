@@ -1,13 +1,15 @@
 import axios from "axios";
 
-const apiKey = '35d5e55a0280fc5e6ec8a4b430af1d4b';
-const baseURL = 'https://api.themoviedb.org/3';
+const baseURL = process.env.REACT_APP_API_BASE_URL;
+const access = process.env.REACT_APP_API_ACCESS_TOKEN;
 
-const apiService = axios.create({
-    baseURL,
-    params: {
-        api_key: apiKey,
-    },
-});
+const apiService = axios.create({baseURL})
+
+apiService.interceptors.request.use(req => {
+    if (access) {
+        req.headers.Authorization = `Bearer ${access}`
+    }
+    return req
+})
 
 export {apiService};

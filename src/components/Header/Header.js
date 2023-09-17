@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import styles from './Header.module.css'
 
 import {UserInfo} from "../UserInfo/UserInfo";
-import {genreActions, moviesActions} from "../../redux";
+import {genreActions, moviesActions, searchMoviesActions} from "../../redux";
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -12,18 +12,8 @@ const Header = () => {
     const handleMoviesClick = () => {
         dispatch(genreActions.clearGenre());
         dispatch(moviesActions.clearSort())
+        dispatch(searchMoviesActions.clearSearchMovies())
     };
-
-    const links = [
-        {
-            path: '/movies',
-            label: 'Movies'
-        },
-        {
-            path: '/topRated',
-            label: 'TopRated'
-        },
-    ]
 
     return (
         <div className={styles.container}>
@@ -40,7 +30,14 @@ const Header = () => {
             >
                 TopRated
             </Link>
-            <UserInfo />
+            <Link
+                style={{ color: pathname === '/search' ? 'black' : 'white' }}
+                to="/search"
+                onClick={handleMoviesClick}
+            >
+                Search
+            </Link>
+            <UserInfo/>
         </div>
     );
 };

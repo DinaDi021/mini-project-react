@@ -1,28 +1,31 @@
 import React from 'react';
 import {useSearchParams} from "react-router-dom";
+
 import {Pagination} from "@mui/material";
 
 const Paginations = ({totalPages}) => {
     const [query, setQuery] = useSearchParams()
-    const currentPage = +query.get('page') || '1';
-    const selectedGenre = query.get('genreId') || '';
-    const selectedSort = query.get('sorted') || '';
+    let currentPage = +query.get('page') || 1;
 
-    const queryParams = {
-        page: currentPage.toString(),
-        ...(selectedGenre && { genreId: selectedGenre}),
-        ...(selectedSort && {sorted: selectedSort})
-    };
+    if (currentPage > 500) {
+        currentPage = 500;
+        setQuery(prev => {
+            prev.set('page', '500');
+            return prev;
+        });
+    }
 
     const handlePageChange = (e, page) => {
-        queryParams.page = page;
-        setQuery(queryParams);
+        setQuery(prev => {
+            prev.set('page',(page).toString())
+            return prev
+        })
     };
 
     return (
         <div>
             <Pagination
-                count={totalPages}
+                count={totalPages > 500 ? 500 : totalPages}
                 page={+currentPage}
                 variant="outlined"
                 color="secondary"

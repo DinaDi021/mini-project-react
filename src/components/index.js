@@ -32,6 +32,9 @@ export * from './Pagination/Pagination'
 export * from './Cast/CastDetails/CastDetails.module.css'
 export * from './Cast/CastDetails/CastDetails'
 export * from './Cast/Cast'
+export * from './Search/Search'
+export * from './Search/Seach.module.css'
+export * from './Search/SearchMovies/SearchMovies'
 
 
 
